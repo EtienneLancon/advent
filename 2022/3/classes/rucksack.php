@@ -6,7 +6,7 @@
         public Compartment $compartment2;
         public Items $items;
         private string $content;
-        public int $priority;
+        public ?int $priority;
 
         public function __construct(string $content)
         {
@@ -24,15 +24,25 @@
 
             for($i = strlen($content)/2; $i < strlen($content); $i++)
             {
-                if(($priority = $this->items->exists($this->getLetter($i))) !== null)
-                {
-                    $this->priority = $priority;
-                }
+                $letter = $this->getLetter($i);
+                $compartment2->push($letter);
+                $this->items->push($letter);
             }
+        }
+
+        public function hasIn(array $letters): array
+        {
+            return $this->items->hasIn($letters);
         }
 
         private function getLetter(int $i): string
         {
             return substr($this->content, $i, 1);
+        }
+
+        public function getPriority(string $letter): ?int
+        {
+            $this->priority = $this->items->exists($letter);
+            return $this->priority;
         }
     }

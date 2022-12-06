@@ -21,4 +21,14 @@
 
             return null;
         }
+
+        public function hasIn(array $letters): array
+        {
+            return array_intersect_assoc($this->list, $letters);
+        }
+
+        public function getList(): array
+        {
+            return $this->list;
+        }
     }

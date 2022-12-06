@@ -1,5 +1,8 @@
 <?php
 
+    /**
+     * hi i'm useless
+     */
     class Compartment
     {
         public Items $items;   
