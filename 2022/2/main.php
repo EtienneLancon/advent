@@ -12,7 +12,13 @@
     $paper->setWinsAgainst($rock);
     $scissors->setWinsAgainst($paper);
 
-    $shapes = ['A' => $rock, 'B' => $paper, 'C' => $scissors, 'X' => $rock, 'Y' => $paper, 'Z' => $scissors];
+    $rock->setLoosesAgainst($paper);
+    $paper->setLoosesAgainst($scissors);
+    $scissors->setLoosesAgainst($rock);
+
+    $shapes = ['A' => $rock, 'B' => $paper, 'C' => $scissors];
+    $actions = ['X' => 'loose', 'Y' => 'draw', 'Z' => 'win'];
+
 
     $result = 0;
 
@@ -20,10 +26,21 @@
     {
         $plays = explode(';', trim($round));
 
-        $opponent = $plays[0];
-        $me = $plays[1];
+        $shape = $shapes[$plays[0]];
+        $action = $actions[$plays[1]];
 
-        $result += $shapes[$me]->scoreAgainst($shapes[$opponent]);
+        switch($action)
+        {
+            case 'loose':
+                $result += $shape->winsAgainst->score;
+                break;
+            case 'draw':
+                $result += $shape->score + 3;
+                break;
+            case 'win';
+                $result += $shape->loosesAgainst->score + 6;
+                break;
+        }
     }
 
     echo $result;
