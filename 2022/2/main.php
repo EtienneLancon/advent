@@ -23,8 +23,6 @@
         $opponent = $plays[0];
         $me = $plays[1];
 
-        var_dump($shapes[$me]);
-
         $result += $shapes[$me]->scoreAgainst($shapes[$opponent]);
     }
 
