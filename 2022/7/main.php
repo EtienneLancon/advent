@@ -14,8 +14,4 @@
 
     $spaceToFree = 30000000 - (70000000 - $root->size);
 
-    echo $root->size."\n";
-    echo "70000000\n";
-    echo $spaceToFree."\n";
-
     echo $root->getSmallestGreaterThan($spaceToFree);
