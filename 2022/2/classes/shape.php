@@ -13,13 +13,17 @@
             $this->name = $name;
         }
 
-        public function setWinsAgainst(Shape $shape)
+        public function setWinsAgainst(Shape $shape): self
         {
             $this->winsAgainst = $shape;
+
+            return $this;
         }
 
-        public function setLoosesAgainst(Shape $shape)
+        public function setLoosesAgainst(Shape $shape): self
         {
             $this->loosesAgainst = $shape;
+
+            return $this;
         }
     }

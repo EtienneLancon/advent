@@ -8,13 +8,9 @@
     $paper = new Shape(2, 'paper');
     $scissors = new Shape(3, 'scissors');
 
-    $rock->setWinsAgainst($scissors);
-    $paper->setWinsAgainst($rock);
-    $scissors->setWinsAgainst($paper);
-
-    $rock->setLoosesAgainst($paper);
-    $paper->setLoosesAgainst($scissors);
-    $scissors->setLoosesAgainst($rock);
+    $rock->setWinsAgainst($scissors)->setLoosesAgainst($paper);
+    $paper->setWinsAgainst($rock)->setLoosesAgainst($scissors);
+    $scissors->setWinsAgainst($paper)->setLoosesAgainst($rock);
 
     $shapes = ['A' => $rock, 'B' => $paper, 'C' => $scissors];
     $actions = ['X' => 'loose', 'Y' => 'draw', 'Z' => 'win'];
