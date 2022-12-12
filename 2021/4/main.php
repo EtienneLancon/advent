@@ -18,9 +18,16 @@
         {
             if($grid->play($number) === true)
             {
-                echo $grid->getScore($number);
-
-                break 2;
+                if(count($listGrid) > 1)
+                {
+                    unset($listGrid[$key]);
+                }
+                else
+                {
+                    echo $grid->getScore($number);
+    
+                    break 2;
+                }
             }
         }
     }
