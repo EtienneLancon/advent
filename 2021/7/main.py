@@ -2,11 +2,22 @@ input = [1101,1,29,67,1102,0,1,65,1008,65,35,66,1005,66,28,1,67,65,20,4,0,1001,6
 
 weights = {}
 
+mediane = 0
+numberparsed = 0
+under = 0
+over = 0
+
 for number in input:
     if weights.get(number):
         weights[number] += 1
     else:
         weights[number] = 1
+    
+    numberparsed += 1
+    if number < mediane:
+        if numberparsed % 2 == 0:
+            
+    mediane = mediane  number / 2
 
 
 
